@@ -11,7 +11,7 @@ int sumOfElements(int arr[],int size){
     int sum=0;
     for(int i=0;i<size;i++){
         sum+=arr[i];//assignment operator +=
-    }
+    }//O(1)*n=O(n)
     return sum;
 }
 struct Dog{//definition
@@ -48,6 +48,16 @@ void incArray(int arr[],int size){
     for(int i=0;i<size;i++){
         arr[i]++;
     }
+}
+//key, array and size
+//find the key and return the index
+int linearSearch(int arr[],int key, int size){
+    for(int i=0;i<size;i++){
+        if(arr[i]==key){
+            return i;
+        }
+    }
+    return -1;
 }
 int main(){
     int arr[5]={9,1,3,5,2};
