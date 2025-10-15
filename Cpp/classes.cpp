@@ -19,6 +19,12 @@ class Dog{
         int age;
         string name;
     public:
+        Dog(){
+            cout<<"I'm a dog"<<endl;
+        }
+        Dog(int age){
+            this->age=age;
+        }
         void bark(){
             cout<<"Barks"<<endl;
         }
@@ -56,6 +62,8 @@ class Counter{
 int Counter::count=0;//definition and initialization
 int main(){
     Dog dog;
+    Dog dog1(10);
+    cout<<dog1.getAge()<<endl;
     dog.setAge(10);
     dog.setName("Snoofy");
     dog.bark();
