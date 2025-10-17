@@ -4,7 +4,7 @@ int main(){
     int arr2[]={3,6,5};
     int arr3[8];
     int i=0,j=0,k=0;
-    while(i<4 && j<3){
+    while(i<4 && j<3){//merging sorted arrays
         if(arr1[i]<arr2[j]){
             arr3[k++]=arr1[i++];
         }else{
@@ -17,7 +17,7 @@ int main(){
     while(j<3){
         arr3[k++]=arr2[j++];
     }
-    /*for(int i=0;i<4;i++){
+    /*for(int i=0;i<4;i++){//basic merging
         arr3[i]=arr1[i];
     }
     for(int i=4;i<8;i++){
