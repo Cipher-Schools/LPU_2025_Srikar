@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 using namespace std;
 struct Man{
     int age;
@@ -43,6 +44,10 @@ class Dog{
         friend class Human;
         friend void printVars(const Dog& dog);
 };
+union Obj{
+    int age;//4 bytes
+    char name[50];//50 bytes
+};
 void printVars(const Dog& dog){
     cout<<dog.age<<" "<<dog.name;
 }
@@ -61,6 +66,10 @@ class Counter{
 };
 int Counter::count=0;//definition and initialization
 int main(){
+    Obj o;
+    strcpy(o.name,"srikar");
+    o.age=20;
+    cout<<o.age<<endl;
     Dog dog;
     Dog dog1(10);
     cout<<dog1.getAge()<<endl;
