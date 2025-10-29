@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 typedef struct{
     int data;
     struct Node* next;
@@ -16,6 +17,63 @@ void traverse(Node* head){
         temp=temp->next;
     }
 }
+void insertAtEnd(Node* head, int data){
+    Node* temp=head;
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+    Node* newNode=createNode(data);
+    temp->next=newNode;
+}
+Node* insertAtHead(Node* head, int data){
+    Node* temp=head;
+    Node* newNode=createNode(data);
+    newNode->next=temp;
+    head=newNode;
+    return head;
+}
+void insertAtPos(Node* head,int data,int insertpos){
+    int pos=1;
+    Node *temp=head;
+    while(temp!=NULL){
+        pos++;
+        if(insertpos==pos){
+            Node* prev=temp;
+            Node* next=temp->next;
+            Node* newNode=createNode(data);
+            prev->next=newNode;
+            newNode->next=next;
+        }
+        temp=temp->next;//NULL
+    }
+}
+void deleteFromEnd(Node* head){
+    Node* prev=NULL;
+    Node* current=head;
+    while(current->next!=NULL){
+        prev=current;
+        current=current->next;
+    }
+    prev->next=NULL;
+}
+Node* deleteFromHead(Node* head){
+    Node* next=head->next;
+    head=next;
+    return head;
+}
+void deleteFromPos(Node* head,int deletepos){
+    int pos=1;
+    Node* curr=head;
+    while(curr!=NULL){
+        Node* prev=curr;
+        Node* next=curr->next;
+        pos++;
+        if(pos==deletepos){
+            prev->next=next->next;
+        }
+        curr=curr->next;
+    }
+}   
 int main(){
     Node* head=malloc(sizeof(Node));
     //pointer to datatype
@@ -35,5 +93,12 @@ int main(){
     node3->next=node4;
     Node* node5=createNode(1);
     node4->next=node5;
+    insertAtEnd(head,10);
+    head=insertAtHead(head,20);
+    insertAtPos(head,25,8);
+    deleteFromEnd(head);
+    head=deleteFromHead(head);
+    deleteFromPos(head,4);
+    deleteFromPos(head,5);
     traverse(head);
 }
