@@ -6,11 +6,18 @@ typedef struct{
 }Node;
 Node* createNode(int data){
     Node* newNode=malloc(sizeof(Node));
+    if(newNode==NULL){
+        printf("Memory exception");
+        return NULL;
+    }
     newNode->data=data;
     newNode->next=NULL;
     return newNode;
 }
 void traverse(Node* head){
+    if(head==NULL){
+        return;
+    }
     Node* temp=head;
     while(temp!=NULL){
         printf("%d ",temp->data);
@@ -18,6 +25,10 @@ void traverse(Node* head){
     }
 }
 void insertAtEnd(Node* head, int data){
+    if(head==NULL){
+        Node* newNode=createNode(data);
+        return newNode;
+    }
     Node* temp=head;
     while(temp->next!=NULL){
         temp=temp->next;
@@ -26,6 +37,10 @@ void insertAtEnd(Node* head, int data){
     temp->next=newNode;
 }
 Node* insertAtHead(Node* head, int data){
+    if(head==NULL){
+        Node* newNode=createNode(data);
+        return newNode;
+    }
     Node* temp=head;
     Node* newNode=createNode(data);
     newNode->next=temp;
@@ -33,6 +48,10 @@ Node* insertAtHead(Node* head, int data){
     return head;
 }
 void insertAtPos(Node* head,int data,int insertpos){
+    if(head==NULL){
+        Node* newNode=createNode(data);
+        return newNode;
+    }
     int pos=1;
     Node *temp=head;
     while(temp!=NULL){
@@ -48,6 +67,9 @@ void insertAtPos(Node* head,int data,int insertpos){
     }
 }
 void deleteFromEnd(Node* head){
+    if(head==NULL){
+        return;
+    }
     Node* prev=NULL;
     Node* current=head;
     while(current->next!=NULL){
@@ -57,11 +79,17 @@ void deleteFromEnd(Node* head){
     prev->next=NULL;
 }
 Node* deleteFromHead(Node* head){
+    if(head==NULL){
+        return;
+    }
     Node* next=head->next;
     head=next;
     return head;
 }
 void deleteFromPos(Node* head,int deletepos){
+    if(head==NULL){
+        return;
+    }
     int pos=1;
     Node* curr=head;
     while(curr!=NULL){
