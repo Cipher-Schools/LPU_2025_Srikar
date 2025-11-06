@@ -32,6 +32,12 @@ int main(){
     }   
     Node* curr=head;
     Node* next=curr->next;
+    Node* temp=head;
+    printf("Before swapping: ");
+    while(temp!=NULL){
+        printf("%d ",temp->data);
+        temp=temp->next;
+    }
     while(curr!=NULL && next!=NULL){
         int data1=curr->data;
         int data2=next->data;
@@ -42,7 +48,8 @@ int main(){
 	if(curr!=NULL)
         	next=curr->next;
     }
-    Node* temp=head;
+    temp=head;
+    printf("\nAfter swapping: ");
     while(temp!=NULL){
         printf("%d ",temp->data);
         temp=temp->next;
