@@ -158,7 +158,7 @@ Node* deleteFromHeadCLL(Node* head){
     if(head==NULL && head->next==head){
         return NULL;
     }
-    Node* prevHead=head;//4
+    Node* prevHead=head;
     Node* next=head->next;//3
     head=next;//new head 3
     Node* temp=head;//starting from new head
