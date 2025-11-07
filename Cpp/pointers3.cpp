@@ -27,4 +27,11 @@ int main(){
     cout<<*(man.age)<<endl;
     //Man* man1=new Man[10];
     Man man2[10];
+    string str="Srikar";
+    cout<<str.capacity()<<endl;
+    str.push_back('R');
+    str.reserve(100);
+    cout<<str.capacity()<<endl;
+    str.shrink_to_fit();
+    cout<<str.capacity()<<endl;
 }
